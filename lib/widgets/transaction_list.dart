@@ -44,15 +44,16 @@ class TransactionList extends StatelessWidget {
                       Text(
                         tx.title,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 26,
                           fontWeight: FontWeight.bold,
+                          color: Colors.blue,
                         ),
                       ),
                       Text(
                         DateFormat.yMMMEd().add_jms().format(tx.date),
                         style: TextStyle(
                           color: Colors.purple,
-                          fontSize: 12,
+                          fontSize: 14,
                         ),
                       ),
                     ],
