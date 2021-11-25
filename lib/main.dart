@@ -17,6 +17,15 @@ class MyApp extends StatelessWidget {
               'Daily Expenses',
             ),
           ),
+          actions: [
+            IconButton(
+              hoverColor: Colors.pink,
+              onPressed: () {},
+              icon: Icon(
+                Icons.add,
+              ),
+            ),
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
