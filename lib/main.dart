@@ -51,12 +51,13 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Center(
             child: Icon(Icons.add),
           ),
+          hoverColor: Colors.pink,
         ),
       ),
     );
