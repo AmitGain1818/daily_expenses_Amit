@@ -51,6 +51,13 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Center(
+            child: Icon(Icons.add),
+          ),
+        ),
       ),
     );
   }
