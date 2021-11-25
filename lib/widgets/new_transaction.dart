@@ -32,6 +32,7 @@ class NewTransaction extends StatelessWidget {
                 labelText: 'Product',
               ),
               controller: titleController,
+              onSubmitted: (_) => submitData(),
             ),
             TextField(
               decoration: InputDecoration(
