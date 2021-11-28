@@ -1,9 +1,50 @@
+import 'package:daily_expenses/models/transaction.dart';
+import 'package:daily_expenses/widgets/new_transaction.dart';
+import 'package:daily_expenses/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_expenses/widgets/user_transaction.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final List<Transaction> _userTransactions = [
+    Transaction(
+      id: 't1',
+      title: 'iPhone',
+      amount: 1399,
+      date: DateTime.now(),
+    ),
+  ];
+  void _addNewTransaction(String txTitle, double txAmount) {
+    final newTx = Transaction(
+      title: txTitle,
+      amount: txAmount,
+      date: DateTime.now(),
+      id: DateTime.now().toString(),
+    );
+    setState(() {
+      _userTransactions.add(newTx);
+    });
+  }
+
+  void startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewTransaction(_addNewTransaction),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,7 +88,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              UserTrasaction(),
+              TransactionList(_userTransactions),
             ],
           ),
         ),
