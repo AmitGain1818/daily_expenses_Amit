@@ -2,7 +2,6 @@ import 'package:daily_expenses/models/transaction.dart';
 import 'package:daily_expenses/widgets/new_transaction.dart';
 import 'package:daily_expenses/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
-import 'package:daily_expenses/widgets/user_transaction.dart';
 
 void main() => runApp(MyApp());
 
