@@ -6,12 +6,39 @@ import 'package:daily_expenses/widgets/user_transaction.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        textTheme: ThemeData.light().textTheme.copyWith(
+              caption: TextStyle(
+                fontFamily: 'Pacifico',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                caption: TextStyle(
+                  fontFamily: 'SourceSansPro',
+                ),
+              ),
+        ),
+      ),
+      title: 'Flutter App',
+      home: MyHomePage(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
     Transaction(
       id: 't1',
@@ -20,6 +47,7 @@ class _MyAppState extends State<MyApp> {
       date: DateTime.now(),
     ),
   ];
+
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
       title: txTitle,
@@ -32,7 +60,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void startAddNewTransaction(BuildContext ctx) {
+  void _startAddNewTransactons(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
       builder: (_) {
@@ -48,56 +76,34 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.orange,
-        textTheme: ThemeData.light().textTheme.copyWith(
-              caption: TextStyle(
-                fontFamily: 'SourceSansPro',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-        appBarTheme: AppBarTheme(
-          textTheme: ThemeData.light().textTheme.copyWith(
-                caption: TextStyle(
-                  fontFamily: 'Pacifico',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-        ),
-      ),
       debugShowCheckedModeBanner: false,
-      title: 'Daily Shop',
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.cyan,
-          title: Center(
-            child: Text(
-              'Daily Expenses',
-            ),
+          title: Text(
+            'Daily Expenses',
           ),
+          centerTitle: true,
+          backgroundColor: Colors.cyan,
           actions: [
             IconButton(
+              icon: Icon(Icons.add),
               hoverColor: Colors.pink,
-              onPressed: () {},
-              icon: Icon(
-                Icons.add,
-              ),
+              onPressed: () => _startAddNewTransactons(context),
             ),
           ],
         ),
         body: SingleChildScrollView(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 width: double.infinity,
                 child: Card(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.teal,
+                  color: Colors.blue,
                   child: Center(
                     child: Text(
-                      'Chart',
+                      'CHART',
                       style: Theme.of(context).textTheme.caption,
                     ),
                   ),
@@ -109,11 +115,13 @@ class _MyAppState extends State<MyApp> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Center(
-            child: Icon(Icons.add),
+          child: Icon(
+            Icons.add,
+            color: Colors.black,
           ),
-          hoverColor: Colors.pink,
+          backgroundColor: Colors.pink,
+          hoverColor: Colors.green,
+          onPressed: () => _startAddNewTransactons(context),
         ),
       ),
     );
