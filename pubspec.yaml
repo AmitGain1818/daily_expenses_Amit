@@ -67,9 +67,9 @@ flutter:
         - asset: fonts/Pacifico-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-    - family: SourceSansPro
+    - family: LobsterTwo
       fonts:
-        - asset: fonts/SourceSansPro-Light.ttf
+        - asset: fonts/LobsterTwo-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

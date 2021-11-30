@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
                 caption: TextStyle(
-                  fontFamily: 'SourceSansPro',
+                  fontFamily: 'LobsterTwo',
                 ),
               ),
         ),
