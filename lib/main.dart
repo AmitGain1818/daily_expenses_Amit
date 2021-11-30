@@ -48,6 +48,24 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.orange,
+        textTheme: ThemeData.light().textTheme.copyWith(
+              caption: TextStyle(
+                fontFamily: 'SourceSansPro',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                caption: TextStyle(
+                  fontFamily: 'Pacifico',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       title: 'Daily Shop',
       home: Scaffold(
@@ -80,10 +98,7 @@ class _MyAppState extends State<MyApp> {
                   child: Center(
                     child: Text(
                       'Chart',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.caption,
                     ),
                   ),
                 ),
